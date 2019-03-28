@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ebiz.iml" filepath="$PROJECT_DIR$/ebiz.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Eticket.iml" filepath="$PROJECT_DIR$/Eticket.iml" />
     </modules>
   </component>
 </project>
