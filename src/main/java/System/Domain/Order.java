@@ -18,6 +18,9 @@ public class Order extends  Base{
     @JoinColumn(name = "CUSTOMERID")
     private Customer customer;
 
+    @Column(name = "ORDERID")
+    private String orderId;
+
     @Column(name = "BUY")
     private Integer buy;
 
