@@ -15,17 +15,20 @@ import java.util.Date;
 @Table(name = "TICKET")
 public class Ticket extends Base {
 
+    @Column(name = "TICKET_ID")
+    private String ticketID;
+
     @Column(name = "FILM")
     private String film;
 
     @Column(name = "Date")
     private Date date;
 
-    @Column(name = "STARTDATE")
-    private Date startDate;
+    @Column(name = "STARTTIME")
+    private Integer startTime;
 
     @Column(name = "FINISHTIME")
-    private Date finishTime;
+    private Integer finishTime;
 
     @Column(name = "QUANTITY")
     private Integer quantity;
