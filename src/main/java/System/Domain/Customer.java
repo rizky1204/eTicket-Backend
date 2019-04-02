@@ -15,6 +15,9 @@ import javax.persistence.Table;
 @Table(name = "CUSTOMER")
 public class Customer extends Base {
 
+    @Column(name = "CUSTOMER_ID")
+    private String customerId;
+
     @Column(name = "name")
     private String name;
 
