@@ -8,6 +8,7 @@ import System.Vo.TicketVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -21,13 +22,16 @@ public class TicketService {
     TicketRepository ticketRepository;
 
     public TicketVO searchTiket(String id){
-        Ticket ticket = ticketRepository.findTop1ByFilmLikeIgnoreCase(id);
+        if(StringUtils.isEmpty(id)) throw new EticketException("id can not be null");
+        String film =  "%" + id + "%";
+        Ticket ticket = ticketRepository.findTop1ByFilmLikeIgnoreCase(film);
+        if(ticket == null) {
+            throw new EticketException("Ticket not found");
+        }
         String dateNow = DateUtils.dateToString(new Date() , "HHMM");
         Integer result = ticket.getFinishTime() - Integer.valueOf(dateNow);
 
-        if(ticket == null) {
-            throw new EticketException("Ticket not found");
-        }else if(result < 0){
+         if(result < 0){
             throw new EticketException("The film is finished");
         }
 
