@@ -1,9 +1,7 @@
 # Features
-- Sign Up
-- Sign in
-- Depoist Money
-- Withdraw Money
-- Transactions History
+- Search Customer
+- Search Ticket
+- Order Ticket
 
 # Framework
 - [Java 8] (https://www.oracle.com/technetwork/java/javase/downloads/index.html)
