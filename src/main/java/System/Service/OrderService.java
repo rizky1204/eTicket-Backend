@@ -32,14 +32,17 @@ public class OrderService {
     OrderRepository orderRepository;
 
     public OrderVO addOrder(AddOrderVO vo){
-
+        String methodName ="Order";
+        log.debug("debug:{} vo:{}" , methodName , vo);
         String message = OrderValidator.addOrderValidate(vo);
         if(message != null) throw new EticketException(message);
 
         Customer customer = customerRepository.findByCustomerId(vo.getCustomerId());
+        log.debug("debug:{} customer:{}" ,methodName , customer );
         if(customer == null) throw new EticketException("Customer not found");
 
         Ticket ticket =  ticketRepository.findByTicketID(vo.getTicketId());
+        log.debug("debug:{} ticket:{}" ,methodName , ticket );
         if(ticket == null) throw new EticketException("Ticket not found");
         if(ticket.getQuantity() == 0) throw new EticketException("Ticket sold out");
 
@@ -56,8 +59,6 @@ public class OrderService {
         if(!lastOrder.isEmpty()){
              lastId = lastOrder.get(lastOrder.size() -1);
         }
-
-
 
         String orderId = null;
         if(!StringUtils.isEmpty(lastId)){

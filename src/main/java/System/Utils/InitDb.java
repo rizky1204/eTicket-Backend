@@ -52,42 +52,52 @@ public class InitDb {
         customerPhone.add("08979190598");
         customerPhone.add("081311695669");
 
-        List<Customer> customerList = customerRepository.findAll();
-        if(customerList.isEmpty()){
-            for(int i=0; i<customerId.size(); i++){
-                Customer customer =  new Customer();
-                customer.setName(String.valueOf(customerName.get(i)));
-                customer.setCustomerId(String.valueOf(customerId.get(i)));
-                customer.setEmail(String.valueOf(customerEmail.get(i)));
-                customer.setPhone(String.valueOf(customerPhone.get(i)));
-                customer.setCreatedBy(System);
-                customer.setLastModifiedBy(System);
-                customerRepository.save(customer);
+        List<Customer> customers = customerRepository.findAll();
+            if(customers.isEmpty()){
+                for(int i=0; i<customerId.size(); i++){
+                    Customer customer =  new Customer();
+                    customer.setName(String.valueOf(customerName.get(i)));
+                    customer.setCustomerId(String.valueOf(customerId.get(i)));
+                    customer.setEmail(String.valueOf(customerEmail.get(i)));
+                    customer.setPhone(String.valueOf(customerPhone.get(i)));
+                    customer.setCreatedBy(System);
+                    customer.setLastModifiedBy(System);
+                    customerRepository.save(customer);
 
+                }
             }
-        }
+
+
 
 
         ArrayList ticketId = new ArrayList<>();
         ticketId.add("TKWWBK");
+        ticketId.add("CM");
+        ticketId.add("SM");
 
         ArrayList film = new ArrayList<>();
         film.add("The Kid Who Would Be King");
+        film.add("Captain Marvel");
+        film.add("Spider-Man: Far From Home");
 
         ArrayList startTime = new ArrayList<>();
         startTime.add("2100");
+        startTime.add("2000");
+        startTime.add("1900");
 
         ArrayList finishTime = new ArrayList<>();
         finishTime.add("2200");
+        finishTime.add("2100");
+        finishTime.add("2000");
 
         ArrayList quantity = new ArrayList<>();
         quantity.add("100");
+        quantity.add("100");
+        quantity.add("100");
 
-        ArrayList date = new ArrayList<>();
-        date.add(new Date());
-
-        List<Ticket> ticketList = ticketRepository.findAll();
-        if(ticketList.isEmpty()){
+        List<Ticket> tickets = ticketRepository.findAll();
+        if(tickets.isEmpty()){
+            Date date = new Date();
             for(int i=0; i<ticketId.size(); i++){
                 Ticket ticket = new Ticket();
                 ticket.setCreatedBy(System);
@@ -96,12 +106,15 @@ public class InitDb {
                 ticket.setStartTime(Integer.valueOf(String.valueOf(startTime.get(i))));
                 ticket.setFinishTime(Integer.valueOf(String.valueOf(finishTime.get(i))));
                 ticket.setQuantity(Integer.valueOf(String.valueOf(quantity.get(i))));
-                ticket.setDate((Date) date.get(i));
+                ticket.setDate((Date) date);
                 ticket.setTicketID(String.valueOf(ticketId.get(i)));
                 ticketRepository.save(ticket);
 
             }
         }
+
+
+
 
 
     }
