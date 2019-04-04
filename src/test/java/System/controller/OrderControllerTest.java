@@ -1,5 +1,6 @@
 package System.controller;
 
+import System.Domain.Order;
 import System.Repository.OrderRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -35,14 +36,14 @@ public class OrderControllerTest {
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .content("{\n" +
                         "\t\"customerId\": \"RR001\",\n" +
-                        "    \"ticketId\": \"Rizky\",\n" +
+                        "    \"ticketId\": \"TKWWBK\",\n" +
                         "    \"buy\": \"1\"\n" +
                         "}"))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString("OK")));
 
-        // clean up after testing
-        orderRepository.delete(orderRepository.findByCustomerId(17));
+        // clean up after testingmbn
+
     }
 }

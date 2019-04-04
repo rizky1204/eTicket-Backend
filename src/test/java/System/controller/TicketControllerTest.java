@@ -22,11 +22,11 @@ public class TicketControllerTest {
     @Autowired
     MockMvc mockMvc;
 
-    private String urlCustomer="/api/ticket";
+    private String urlTicket="/api/ticket";
 
     @Test
     public void getDataTest() throws Exception {
-        mockMvc.perform(get(urlCustomer+"/search-ticket?id=rr")).andDo(print()).andExpect(status().isOk())
+        mockMvc.perform(get(urlTicket+"/search-ticket?id=The Kid Who Would Be King")).andDo(print()).andExpect(status().isOk())
                 .andExpect(content().string(containsString("OK")));
     }
 
