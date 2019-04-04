@@ -28,6 +28,8 @@ public class TicketService {
         if(ticket == null) {
             throw new EticketException("Ticket not found");
         }
+
+        if(ticket.getQuantity() == 0) throw new EticketException("Ticket sold out");
         String dateNow = DateUtils.dateToString(new Date() , "HHMM");
         Integer result = ticket.getFinishTime() - Integer.valueOf(dateNow);
 

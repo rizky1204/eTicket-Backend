@@ -14,6 +14,7 @@ import System.Vo.OrderVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
 
@@ -40,6 +41,7 @@ public class OrderService {
 
         Ticket ticket =  ticketRepository.findByTicketID(vo.getTicketId());
         if(ticket == null) throw new EticketException("Ticket not found");
+        if(ticket.getQuantity() == 0) throw new EticketException("Ticket sold out");
 
         if(ticket.getQuantity() < vo.getBuy()){
             throw new EticketException("Ticket balance is not enough");
@@ -50,10 +52,22 @@ public class OrderService {
         }
 
         List<Order> lastOrder =  orderRepository.findAll();
-        Order lastId = lastOrder.get(lastOrder.size() -1);
+        Order lastId=null;
+        if(!lastOrder.isEmpty()){
+             lastId = lastOrder.get(lastOrder.size() -1);
+        }
 
-        String orderId = OrderId.orderId
-                (ticket.getTicketID() , lastId.getId());
+
+
+        String orderId = null;
+        if(!StringUtils.isEmpty(lastId)){
+             orderId = OrderId.orderId
+                    (ticket.getTicketID() , lastId.getId());
+        }else{
+            orderId = OrderId.orderId
+                    (ticket.getTicketID() , 0);
+        }
+
 
         Order order = new Order();
         order.setCustomer(customer);
