@@ -1,6 +1,7 @@
 System/Vo/ResponseVO.class
 System/Exception/EticketException.class
 System/Repository/OrderRepository.class
+System/Controller/SummaryController$1.class
 System/RequestHandler/RestUtil.class
 System/Controller/OrderController.class
 System/Controller/TicketController$1.class
@@ -10,14 +11,17 @@ System/Service/TicketService.class
 System/Vo/CustomerVO.class
 System/Controller/OrderController$1.class
 System/Domain/Order.class
+System/Service/SummaryService.class
 System/Controller/CustomerController$1.class
 System/Vo/OrderVO.class
 System/Validator/OrderValidator.class
 System/Controller/CustomerController.class
+System/filter/CORSFilter.class
 System/Vo/TicketVO.class
 System/Domain/Base.class
 System/Utils/InitDb.class
 System/Utils/DateUtils.class
+System/Vo/SummaryVO.class
 System/Controller/TicketController.class
 System/Repository/TicketRepository.class
 System/Service/OrderService.class
@@ -25,6 +29,7 @@ System/Domain/Ticket.class
 System/Utils/OrderId.class
 System/RequestHandler/RequestHandler.class
 System/Domain/Customer.class
+System/Controller/SummaryController.class
 System/RequestHandler/StatusCode.class
 System/Service/CustomerService.class
 System/Repository/CustomerRepository.class

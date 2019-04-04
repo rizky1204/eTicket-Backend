@@ -1,0 +1,4 @@
+System/ApplicationTest.class
+System/controller/TicketControllerTest.class
+System/controller/CustomerControllerTest.class
+System/controller/OrderControllerTest.class
