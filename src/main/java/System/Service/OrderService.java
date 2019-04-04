@@ -15,6 +15,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Slf4j
 @Service
 public class OrderService {
@@ -47,8 +49,11 @@ public class OrderService {
             ticketRepository.save(ticket);
         }
 
+        List<Order> lastOrder =  orderRepository.findAll();
+        Order lastId = lastOrder.get(lastOrder.size() -1);
+
         String orderId = OrderId.orderId
-                (ticket.getTicketID() , ticket.getId());
+                (ticket.getTicketID() , lastId.getId());
 
         Order order = new Order();
         order.setCustomer(customer);
