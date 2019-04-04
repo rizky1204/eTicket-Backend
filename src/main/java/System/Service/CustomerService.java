@@ -24,6 +24,7 @@ public class CustomerService {
         String idCustomer = "%" + id + "%";
         log.info("BEGIN:{}" , methodName);
         Customer customer = customerRepository.findTop1ByCustomerIdLikeIgnoreCase(idCustomer);
+        log.info(String.valueOf(customer));
         if(customer == null) throw new EticketException("Customer not found");
         CustomerVO customerVO = new CustomerVO();
         customerVO.setCustomerID(customer.getCustomerId());
