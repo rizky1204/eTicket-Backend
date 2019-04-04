@@ -13,7 +13,7 @@
 
 # How to run application
 - Install Maven (https://maven.apache.org/install.html)
-- Install Mysql (https://www.mysql.com/)
+- [Postgre] (https://www.postgresql.org/)
 - Create User in postgre with credentials: eticket/Eticket@123 (as defined in application.properties)
 - Create Database in postgre named: eticket (as defined in application.properties)
 - start the program with command : mvn clean spring-boot:run
