@@ -69,10 +69,10 @@ public class InitDb {
 
 
         ArrayList ticketId = new ArrayList<>();
-        ticketId.add("Rizky");
+        ticketId.add("TKWWBK");
 
         ArrayList film = new ArrayList<>();
-        film.add("RR");
+        film.add("The Kid Who Would Be King");
 
         ArrayList startTime = new ArrayList<>();
         startTime.add("2100");
