@@ -43,8 +43,8 @@ public class TicketService {
         TicketVO ticketVO = new TicketVO();
         ticketVO.setFilm(ticket.getFilm());
         ticketVO.setTicketId(ticket.getTicketID());
-        ticketVO.setFinishTime(strStart.toString());
-        ticketVO.setStartTime(strFinish.toString());
+        ticketVO.setStartTime(strStart.toString());
+        ticketVO.setFinishTime(strFinish.toString());
 
         return ticketVO;
     }
